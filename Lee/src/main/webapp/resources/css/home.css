@@ -1,0 +1,80 @@
+@charset 'utf-8';
+/* main common */
+	td{
+		color: white;
+	}
+	
+	body{
+		background: black;
+	}
+	
+	div{
+		color: white;
+	}
+	
+	h1{
+		color: white;
+		text-align : center;
+	}
+	
+	.main_window{
+		width: 500px;
+        text-align: left; 
+        
+	}
+	
+	.main_window h1{
+		 width: 100px;
+        height: 100px;
+        display: inline-block; 
+        color: white;
+        vertical-align: baseline; 
+	}
+	
+	#login_window{
+		margin: 0 auto;
+        
+	}
+	
+	table{
+		width: 500px;
+		height: 500px;
+		border: 10px solid white;
+		font-size: 30px;
+		text-align: center;
+		padding : 30px;
+	}
+	
+	
+	input{
+		font-size: 30px;
+	}
+	
+	#button1{
+		text-align:center;
+		width: 200px;
+		height: 100px;		
+	}
+	
+	input[type=button]{
+		text-align:center;
+		width: 200px;
+		height: 100px;	
+	}
+	
+	#button3{
+		text-align:center;
+		width: 200px;
+		height: 100px;				
+		position: absolute;
+		top:0; left:0; bottom:0; right:0;
+    
+    margin: 20% auto;
+	}
+	
+	#login_result{
+		position: absolute;
+		top:0; left:0; bottom:0; right:0;
+    
+    margin: 20% auto;
+	}

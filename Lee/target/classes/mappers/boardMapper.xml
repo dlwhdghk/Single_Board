@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="hwa.jong.lee.mappers.boardMapper">
+
+
+<!-- 게시판 목록  -->
+	<select id="list" resultType="boardVO">
+    	select board_number, board_writer, board_title, board_date, board_viewcnt from board 
+    	order by board_number, board_date 
+    </select>
+    
+    <!-- 글쓰기  -->
+    <insert id="insert">
+    	insert into board(
+    		board_title,
+    		board_context,
+    		board_writer
+    		) 
+    		values(#{board_title}, #{board_context}, #{board_writer})
+    </insert>
+    
+    <!-- 게시글 상세보기  -->
+    <select id="detailBoard" resultType="boardVO">
+    	select * from board where board_number = #{board_number}
+    </select>
+    
+    <!-- 게시글 조회수 증가처리 -->
+    <update id= "viewCnt">
+    	update board set board_viewcnt = board_viewcnt + 1 where board_number = #{board_number}
+    </update>
+    
+    <!--글 수정 -->
+    <update id="update">
+    	update board set board_title = #{board_title}, board_context = #{board_context}
+    	where board_number = #{board_number} 
+    </update>
+    
+    <!-- 글 삭제  -->
+   	<delete id="delete">
+   		delete from board where board_number = #{board_number}
+   	</delete>
+    
+    <!-- 댓글 보이기  -->
+    <select id="commentList" resultType="commentVO">
+    	select comment_writer, comment_context from comment where comment_board_number = #{board_number} 
+    	order by comment_number
+    </select>
+    
+    <!-- 댓글 입력 -->
+    <insert id="insertComment">
+    	insert into comment(comment_board_number, comment_writer, comment_context)
+    	values(#{comment_board_number}, #{comment_writer}, #{comment_context}) 
+    </insert>
+    
+</mapper>
+
